@@ -1,12 +1,10 @@
-import React from "react";
-import { BadgeDollarSign } from "lucide-react";
+import React from 'react';
+import { BadgeDollarSign } from 'lucide-react';
 
 export default function PlanCard({ plan }) {
-  return plan === "free" ? (
-    <div className="p-4 bg-yellow-100 rounded-lg border border-yellow-300">
-      <h2 className="text-lg font-semibold text-yellow-600">
-        Estás en el plan gratuito
-      </h2>
+  return plan === 'free' ? (
+    <div className="w-full p-4 bg-yellow-100 rounded-lg border border-yellow-300">
+      <h2 className="text-lg font-semibold text-yellow-600">Estás en el plan gratuito</h2>
       <p className="text-sm text-yellow-800">
         Desbloquea temas premium, más enlaces y estadísticas avanzadas.
       </p>
@@ -19,13 +17,9 @@ export default function PlanCard({ plan }) {
       </a>
     </div>
   ) : (
-    <div className="p-4 bg-green-100 rounded-lg border border-green-300">
-      <h2 className="text-lg font-semibold text-green-600">
-        ¡Tienes el plan PRO!
-      </h2>
-      <p className="text-sm text-green-800">
-        Accede a todas las funciones premium.
-      </p>
+    <div className="w-full p-4 bg-green-100 rounded-lg border border-green-300">
+      <h2 className="text-lg font-semibold text-green-600">¡Tienes el plan PRO!</h2>
+      <p className="text-sm text-green-800">Accede a todas las funciones premium.</p>
     </div>
   );
 }
