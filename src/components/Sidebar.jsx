@@ -1,5 +1,8 @@
 import React from 'react';
 import { LayoutDashboard, Link, BadgeDollarSign, Settings } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+const navigate = useNavigate();
 
 export default function Sidebar({ menuOpen, toggleMenu }) {
   return (
@@ -18,7 +21,7 @@ export default function Sidebar({ menuOpen, toggleMenu }) {
           <Link size={16} /> Enlaces
         </button>
         <button
-          onClick={() => (window.location.href = '/precios')}
+          onClick={() => navigate('/precios')}
           className="flex items-center gap-2 text-sm text-gray-600 hover:text-black"
         >
           <BadgeDollarSign size={16} /> Planes
