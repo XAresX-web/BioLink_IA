@@ -1,18 +1,17 @@
-// PricingPlans.jsx
-import React from "react";
+import React from 'react';
 
-export default function Planes() {
+export default function PricingPlans() {
   return (
     <section className="bg-black text-white py-16 px-6 min-h-screen">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4">Elige tu plan</h2>
         <p className="text-gray-400 mb-10">
           Mejora tu perfil con funciones exclusivas y más impacto.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {/* Plan Gratuito */}
-          <div className="border border-white/10 rounded-xl p-6 bg-white/5">
+          <div className="border border-white/10 rounded-2xl p-6 bg-white/5 shadow hover:scale-[1.02] transition-all">
             <h3 className="text-xl font-semibold mb-2">Plan Gratuito</h3>
             <p className="text-3xl font-bold mb-4">
               $0<span className="text-sm font-normal">/mes</span>
@@ -22,16 +21,14 @@ export default function Planes() {
               <li>✅ Personalización básica</li>
               <li>✅ Perfil público en AI BioLink</li>
             </ul>
-            <button className="w-full bg-gray-700 text-white py-2 rounded">
+            <button className="w-full bg-gray-700 text-white py-2 rounded font-semibold">
               Tu plan actual
             </button>
           </div>
 
           {/* Plan PRO Mensual */}
-          <div className="border border-green-500 rounded-xl p-6 bg-gradient-to-br from-green-600/20 via-black to-green-900/40 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2 text-green-400">
-              PRO Mensual
-            </h3>
+          <div className="border border-green-500 rounded-2xl p-6 bg-gradient-to-br from-green-600/20 via-black to-green-900/40 shadow-xl hover:scale-[1.02] transition-all">
+            <h3 className="text-xl font-semibold mb-2 text-green-400">PRO Mensual</h3>
             <p className="text-3xl font-bold mb-4 text-green-200">
               $99<span className="text-sm font-normal">/mes</span>
             </p>
@@ -53,10 +50,8 @@ export default function Planes() {
           </div>
 
           {/* Plan PRO Anual */}
-          <div className="border border-yellow-500 rounded-xl p-6 bg-gradient-to-br from-yellow-700/30 via-black to-yellow-900/40 shadow-lg">
-            <h3 className="text-xl font-semibold mb-2 text-yellow-300">
-              PRO Anual
-            </h3>
+          <div className="border border-yellow-500 rounded-2xl p-6 bg-gradient-to-br from-yellow-700/30 via-black to-yellow-900/40 shadow-xl hover:scale-[1.02] transition-all">
+            <h3 className="text-xl font-semibold mb-2 text-yellow-300">PRO Anual</h3>
             <p className="text-3xl font-bold mb-4 text-yellow-200">
               $999<span className="text-sm font-normal">/año</span>
             </p>
