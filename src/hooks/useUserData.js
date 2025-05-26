@@ -16,7 +16,9 @@ export default function useUserData() {
         const userSnap = await getDoc(userRef);
 
         if (!userSnap.exists()) {
-          const username = firebaseUser.displayName.toLowerCase().replace(/\s+/g, "");
+          const username = firebaseUser.displayName
+            .toLowerCase()
+            .replace(/\s+/g, "");
           const newUser = {
             nombre: firebaseUser.displayName,
             email: firebaseUser.email,

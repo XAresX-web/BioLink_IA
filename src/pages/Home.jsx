@@ -1,11 +1,10 @@
-
-import React from "react"
-import { useNavigate } from "react-router-dom"
-import Button from "../components/Button"
-import { LogOut, ArrowRight, User } from "lucide-react"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import { LogOut, ArrowRight, User } from "lucide-react";
 
 const Home = ({ user, login, logout }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f0f] via-[#111] to-[#1a1a1a] text-white flex items-center justify-center px-6 py-16">
@@ -14,7 +13,9 @@ const Home = ({ user, login, logout }) => {
           AI BioLink 🚀
         </h1>
         <p className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto">
-          Centraliza tu presencia online en un solo enlace inteligente. Impulsado por IA. Personalizable. Profesional. Tu nueva identidad digital empieza aquí.
+          Centraliza tu presencia online en un solo enlace inteligente.
+          Impulsado por IA. Personalizable. Profesional. Tu nueva identidad
+          digital empieza aquí.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {user ? (
@@ -51,7 +52,7 @@ const Home = ({ user, login, logout }) => {
         </footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

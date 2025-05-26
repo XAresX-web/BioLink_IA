@@ -17,5 +17,9 @@ export default function Gracias({ user, db }) {
     }
   }, [user]);
 
-  return <div className="text-white p-8">¡Gracias por tu compra! Redirigiendo a tu dashboard...</div>;
+  return (
+    <div className="text-white p-8">
+      ¡Gracias por tu compra! Redirigiendo a tu dashboard...
+    </div>
+  );
 }
