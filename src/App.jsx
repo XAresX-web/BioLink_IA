@@ -1,25 +1,23 @@
-// Proyecto base de AI BioLink SaaS con rutas dinámicas, Firebase y edición automática
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { initializeApp } from "firebase/app";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
   signOut,
-} from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+} from 'firebase/auth';
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // Páginas principales
-import Home from "./pages/Home";
-import Perfil from "./pages/Perfil";
-import Dashboard from "./pages/Dashboard";
-import Gracias from "./pages/Gracias";
-import Planes from "./pages/PricingPlans";
+import Home from './pages/Home';
+import Perfil from './pages/Perfil';
+import Dashboard from './pages/Dashboard';
+import Gracias from './pages/Gracias';
+import Planes from './pages/PricingPlans';
 
-// Configuración Firebase
+// Firebase config
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -35,6 +33,20 @@ const db = getFirestore();
 
 function App() {
   const [user, setUser] = useState(null);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  // Aplicar clase "dark" al cargar y cuando cambie darkMode
+  useEffect(() => {
+    const root = document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (u) => setUser(u));
@@ -44,14 +56,13 @@ function App() {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-
       const user = result.user;
       const slug = user.displayName
         .toLowerCase()
-        .replace(/\s+/g, "")
-        .replace(/[^\w\-]/g, "");
+        .replace(/\s+/g, '')
+        .replace(/[^\w\-]/g, '');
 
-      const userRef = doc(db, "usuarios", user.uid);
+      const userRef = doc(db, 'usuarios', user.uid);
       const userSnap = await getDoc(userRef);
 
       if (!userSnap.exists()) {
@@ -60,20 +71,20 @@ function App() {
           nombre: user.displayName,
           email: user.email,
           enlaces: [],
-          bio: "Generando biografía con IA...",
+          bio: 'Generando biografía con IA...',
           slug: slug,
           avatar: user.photoURL,
-          plan: "free",
+          plan: 'free',
           creadoEn: new Date().toISOString(),
         };
 
         await setDoc(userRef, nuevoUsuario);
-        console.log("✅ Usuario creado en Firestore:", nuevoUsuario);
+        console.log('✅ Usuario creado en Firestore:', nuevoUsuario);
       } else {
-        console.log("ℹ️ Usuario ya existe en Firestore.");
+        console.log('ℹ️ Usuario ya existe en Firestore.');
       }
     } catch (error) {
-      console.error("❌ Error durante el login:", error);
+      console.error('❌ Error durante el login:', error);
     }
   };
 
@@ -84,9 +95,19 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home user={user} login={login} logout={logout} />}
+          element={<Home user={user} login={login} logout={logout} darkMode={darkMode} />}
         />
-        <Route path="/dashboard" element={<Dashboard user={user} db={db} />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Dashboard
+              user={user}
+              db={db}
+              darkMode={darkMode}
+              toggleDarkMode={() => setDarkMode(!darkMode)}
+            />
+          }
+        />
         <Route path="/:slug" element={<Perfil db={db} />} />
         <Route path="/gracias" element={<Gracias user={user} db={db} />} />
         <Route path="/precios" element={<Planes />} />

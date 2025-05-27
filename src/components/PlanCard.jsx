@@ -1,6 +1,7 @@
 import React from 'react';
 import { BadgeDollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 
 export default function PlanCard({ plan }) {
   const navigate = useNavigate();
@@ -13,13 +14,9 @@ export default function PlanCard({ plan }) {
       <p className="text-sm sm:text-base text-yellow-800 mt-2">
         Desbloquea temas premium, más enlaces y estadísticas avanzadas.
       </p>
-      <button
-        onClick={() => navigate('/precios')}
-        className="mt-4 inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 py-2 rounded w-full transition-all"
-      >
-        <BadgeDollarSign size={18} className="mr-2" />
-        Ver planes y actualizar
-      </button>
+      <Button onClick={() => navigate('/precios')}>
+        <BadgeDollarSign size={16} /> Planes
+      </Button>
     </div>
   ) : (
     <div className="w-full p-4 sm:p-6 bg-green-100 rounded-lg border border-green-300 shadow-md">

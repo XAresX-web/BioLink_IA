@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: 'class', // Habilita modo oscuro por clase
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1db954', // Verde profesional para tu branding
+      },
+    },
   },
   plugins: [],
 };

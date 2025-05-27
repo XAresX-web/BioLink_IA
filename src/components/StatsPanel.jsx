@@ -1,15 +1,33 @@
 import React from 'react';
+import { Eye, MousePointerClick } from 'lucide-react';
 
-export default function StatsPanel() {
+export default function StatsPanel({ views = 0, clicks = 0 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div className="rounded-xl bg-gradient-to-br from-green-100 via-white to-green-50 border border-green-200 shadow-lg p-6 text-center hover:scale-[1.01] transition-transform">
-        <p className="text-sm text-gray-600 mb-2">Vistas totales</p>
-        <p className="text-4xl font-bold text-green-700">12</p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {/* Vistas totales */}
+      <div className="flex items-center gap-4 p-6 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow hover:scale-[1.01] transition-transform">
+        <div className="p-3 rounded-full bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-200">
+          <Eye size={24} />
+        </div>
+        <div>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Vistas totales</p>
+          <p className="text-3xl font-bold text-gray-800 dark:text-white animate-pulse">
+            {views.toLocaleString()}
+          </p>
+        </div>
       </div>
-      <div className="rounded-xl bg-gradient-to-br from-blue-100 via-white to-blue-50 border border-blue-200 shadow-lg p-6 text-center hover:scale-[1.01] transition-transform">
-        <p className="text-sm text-gray-600 mb-2">Clicks totales</p>
-        <p className="text-4xl font-bold text-blue-700">5</p>
+
+      {/* Clicks totales */}
+      <div className="flex items-center gap-4 p-6 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-2xl shadow hover:scale-[1.01] transition-transform">
+        <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-200">
+          <MousePointerClick size={24} />
+        </div>
+        <div>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Clics totales</p>
+          <p className="text-3xl font-bold text-gray-800 dark:text-white animate-pulse">
+            {clicks.toLocaleString()}
+          </p>
+        </div>
       </div>
     </div>
   );
