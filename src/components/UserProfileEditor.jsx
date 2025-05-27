@@ -36,14 +36,6 @@ export default function UserProfileEditor({ data, setData }) {
       const nombre = data.nombre?.trim() || 'Usuario';
       const profesion = data.profesion?.trim() || 'Creador digital';
 
-      const prompt = `
-Genera una biografía profesional breve (máx 300 caracteres), amigable y creativa para una tarjeta de perfil.
-Nombre: ${nombre}
-Profesión: ${profesion}
-Estilo: humano, moderno, inspirador, con un toque personal.
-No pongas comillas ni emojis. Devuelve solo el texto directo.
-`;
-
       const response = await fetch('/api/generarBio', {
         method: 'POST',
         headers: {
@@ -53,14 +45,15 @@ No pongas comillas ni emojis. Devuelve solo el texto directo.
       });
 
       const result = await response.json();
-      const bioGenerada = result.choices?.[0]?.message?.content?.trim();
+
+      const bioGenerada = result.resultado?.trim(); // ✅ Esto es lo correcto ahora
 
       if (bioGenerada) {
         setIaRespuesta(bioGenerada);
         setData({ ...data, bio: bioGenerada });
       } else {
         alert('❌ No se pudo generar una biografía. Intenta nuevamente.');
-        console.warn('⚠️ Respuesta OpenAI sin contenido:', result);
+        console.warn('⚠️ Respuesta sin contenido:', result);
       }
     } catch (error) {
       console.error('❌ Error generando biografía con IA:', error);
