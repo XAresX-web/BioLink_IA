@@ -1,21 +1,21 @@
-// src/firebase.js
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
-// Usamos variables de entorno para ocultar datos sensibles
+// Configuración correcta de Firebase
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: 'AIzaSyDVUGVYLHdbTHO0A6UexYEXYw-9LuvlVuA',
+  authDomain: 'biolink-ai.firebaseapp.com',
+  projectId: 'biolink-ai',
+  storageBucket: 'biolink-ai.appspot.com', // ✅ corregido
+  messagingSenderId: '770377840002',
+  appId: '1:770377840002:web:f98dee4916825f36250b9b',
+  measurementId: 'G-WC8QPBGQXW',
 };
 
+// Inicializar la app solo una vez
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
-export { auth, db };
+// Servicios
+export const auth = getAuth(app);
+export const db = getFirestore(app);
