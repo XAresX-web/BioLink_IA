@@ -1,8 +1,8 @@
-# Protecciones básicas
 .env
 node_modules
 .vercel
 .vscode
 dist
-build
 .cache
+.DS_Store
+*.log
