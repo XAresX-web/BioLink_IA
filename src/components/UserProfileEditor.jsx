@@ -12,6 +12,7 @@ const profesiones = [
   'Actor',
   'Psicólogo',
   'Diseñador',
+  'Escritor',
   'Streamer',
   'Empresario',
   'Creador de contenido',
