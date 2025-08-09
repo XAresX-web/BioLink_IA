@@ -122,13 +122,13 @@ const Home = ({ user, login, logout }) => {
             {/* Badge de credibilidad */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-4">
               <Award className="w-4 h-4 mr-2" />
-              Plataforma #1 en Latinoamérica
+              Plataforma en desarrollo para Latinoamérica. <br></br>¡Ya disponible en Europa!
             </div>
 
             {/* Título principal */}
             <h1 className="text-6xl md:text-7xl font-black leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-lime-400 to-emerald-400 drop-shadow-lg">
-                AI BioLink
+                BioLink AI
               </span>
               <span className="block text-3xl md:text-4xl font-bold text-white mt-2">
                 Tu identidad digital inteligente
@@ -222,7 +222,7 @@ const Home = ({ user, login, logout }) => {
                     className="group relative px-10 py-5 bg-gradient-to-r from-green-400 to-lime-400 hover:from-green-500 hover:to-lime-500 text-black font-bold text-xl rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 inline-flex items-center"
                   >
                     <Sparkles className="w-6 h-6 mr-3 animate-pulse" />
-                    Crear mi BioLink Gratis
+                    Mira una Demo
                     <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
                   </button>
 
@@ -288,14 +288,14 @@ const Home = ({ user, login, logout }) => {
             </div>
           </div>
 
-          {/* Demo Preview */}
+          {/* Demo Preview
           <div className="mt-20 text-center">
             <button className="group inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:border-green-500/30 transition-all duration-300 hover:scale-105 text-gray-300 hover:text-white">
               <Play className="w-5 h-5 mr-2" />
               Ver demo de 60 segundos
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
+          </div> */}
 
           {/* Trust Indicators */}
           <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-gray-500 text-sm">
